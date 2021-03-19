@@ -1,4 +1,7 @@
 # Datadog changelog
+## 2.10.7
+
+* Add `enableRuntimeCompiler` option & bind mount _____ in the `system-probe`.
 
 ## 2.10.6
 
