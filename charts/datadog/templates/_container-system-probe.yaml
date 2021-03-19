@@ -62,6 +62,11 @@
       mountPath: /etc/datadog-agent/runtime-security.d
       readOnly: true
 {{- end }}
+{{- if .Values.datadog.systemProbe.enableRuntimeCompiler }}
+    - name: kernel-headers-dir
+      mountPath: /tmp/kernel-headers
+      readOnly: false
+{{- end }}
 {{- if .Values.agents.volumeMounts }}
 {{ toYaml .Values.agents.volumeMounts | indent 4 }}
 {{- end }}

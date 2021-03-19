@@ -53,6 +53,10 @@
     path: /usr/src
   name: src
 {{- end }}
+{{- if .Values.datadog.systemProbe.enableRuntimeCompiler }}
+- name: kernel-headers-dir
+  emptyDir: {}
+{{- end }}
 {{- end }}
 {{- if or .Values.datadog.processAgent.enabled (eq (include "should-enable-system-probe" .) "true") (eq (include "should-enable-security-agent" .) "true") }}
 - hostPath:
