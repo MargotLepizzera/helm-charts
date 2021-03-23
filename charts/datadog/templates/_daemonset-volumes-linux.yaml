@@ -56,6 +56,21 @@
 {{- if .Values.datadog.systemProbe.enableRuntimeCompiler }}
 - name: kernel-headers-dir
   emptyDir: {}
+- hostPath:
+    path: /etc/apt
+  name: apt-config-dir
+- hostPath:
+    path: /etc/yum.repos.d
+  name: yum-repos-dir
+- hostPath:
+    path: /etc/pki
+  name: public-key-dir
+- hostPath:
+    path: /etc/rhsm
+  name: rhel-subscription-dir
+- hostPath:
+    path: /etc/zypp
+  name: opensuse-repos-dir
 {{- end }}
 {{- end }}
 {{- if or .Values.datadog.processAgent.enabled (eq (include "should-enable-system-probe" .) "true") (eq (include "should-enable-security-agent" .) "true") }}

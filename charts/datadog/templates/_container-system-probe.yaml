@@ -66,6 +66,21 @@
     - name: kernel-headers-dir
       mountPath: /tmp/kernel-headers
       readOnly: false
+    - name: apt-config-dir
+      mountPath: /etc/apt
+      readOnly: true
+    - name: yum-repos-dir
+      mountPath: /etc/yum.repos.d
+      readOnly: true
+    - name: public-key-dir
+      mountPath: /etc/pki
+      readOnly: true
+    - name: rhel-subscription-dir
+      mountPath: /etc/rhsm
+      readOnly: true
+    - name: opensuse-repos-dir
+      mountPath: /etc/zypp
+      readOnly: true
 {{- end }}
 {{- if .Values.agents.volumeMounts }}
 {{ toYaml .Values.agents.volumeMounts | indent 4 }}
